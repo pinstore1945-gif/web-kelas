@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Kelas 7A - Dardcor AI</title>
+    <!-- Tailwind CSS CDN untuk styling modern dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles untuk animasi dan penyesuaian dasar yang tidak dicover oleh Tailwind -->
+    <style>
+        /* Definisi animasi fadeOut untuk layar intro */
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+        .animate-fade-out {
+            animation: fadeOut 2s forwards;
+            animation-delay: 2s;
+        }
+
+        /* Font dasar untuk konsistensi di seluruh halaman */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling spesifik untuk item daftar prestasi (animasi dikelola oleh JS) */
+        .prestasi-list li {
+            margin-bottom: 6px;
+            /* Transisi untuk properti yang akan dimanipulasi oleh JavaScript */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-[#f2f6ff]">
+
+    <!-- LAYAR INTRO -->
+    <!-- Elemen intro akan muncul pertama kali, kemudian memudar setelah 2 detik -->
+    <div id="intro" class="fixed inset-0 flex flex-col justify-center items-center text-2xl text-white font-bold bg-gradient-to-br from-[#4facfe] to-[#00f2fe] z-50 animate-fade-out">
+        <img src="https://iili.io/q918bRe.jpg" alt="Logo Kelas 7A" class="w-32 mb-4">
+        Welcome to Web 7A
+    </div>
+
+    <!-- WRAPPER KONTEN UTAMA -->
+    <!-- Memastikan konten terpusat dan responsif di berbagai ukuran layar -->
+    <div class="max-w-xl mx-auto bg-[#f2f6ff] min-h-screen shadow-lg">
+        <!-- Logo di bagian atas halaman -->
+        <img src="https://iili.io/q918bRe.jpg" alt="Logo Kelas 7A" class="w-28 block mx-auto my-4">
+        <!-- Header utama halaman -->
+        <header class="bg-[#4facfe] text-white text-center p-4 shadow-md">
+            <h2 class="text-2xl font-semibold">Web Kelas 7A</h2>
+            <p class="text-sm">Wali Kelas: Bu Opah</p>
+        </header>
+
+        <!-- BAGIAN HOME -->
+        <!-- Bagian ini akan aktif secara default saat halaman dimuat -->
+        <section id="home" class="p-4">
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">🏆 Prestasi Kelas 7A</h3>
+                <p class="text-gray-700 mb-4">Kelas 7A dikenal sebagai kelas yang kompak dan penuh semangat.</p>
+                <ul class="prestasi-list list-none pl-0">
+                    <li>🏕️ Juara Lomba Pramuka</li>
+                    <li>⚽ Juara Futsal Antar Sekolah</li>
+                    <li>🥋 Juara Lomba Silat</li>
+                    <li>💃 Juara Lomba Nari</li>
+                    <li>🇮🇩 Juara Paskibra</li>
+                </ul>
+            </div>
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md text-center">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">📌 Menu Utama</h3>
+                <button onclick="showPage('jadwal')" class="w-4/5 md:w-3/4 py-2 px-4 my-1 border-none rounded-lg bg-[#4facfe] text-white text-base cursor-pointer hover:bg-[#3a9af7] transition-colors duration-200">📅 Lihat Jadwal</button><br>
+                <button onclick="showPage('struktur')" class="w-4/5 md:w-3/4 py-2 px-4 my-1 border-none rounded-lg bg-[#4facfe] text-white text-base cursor-pointer hover:bg-[#3a9af7] transition-colors duration-200">👥 Data Struktur Kelas</button>
+            </div>
+        </section>
+
+        <!-- BAGIAN JADWAL -->
+        <!-- Bagian ini tersembunyi secara default -->
+        <section id="jadwal" class="p-4 hidden">
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">📘 Senin</h3>
+                <table class="w-full border-collapse">
+                    <tbody>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">07.30-08.50</td><td class="p-2 border-b border-gray-200 text-sm">Bhs Inggris</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">08.50-09.30</td><td class="p-2 border-b border-gray-200 text-sm">IPS</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">09.30-10.00</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">10.00-12.00</td><td class="p-2 border-b border-gray-200 text-sm">Bhs Indonesia</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">12.00-12.30</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">12.30-13.50</td><td class="p-2 border-b border-gray-200 text-sm">IPA</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">📗 Selasa</h3>
+                <table class="w-full border-collapse">
+                    <tbody>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">06.30-08.30</td><td class="p-2 border-b border-gray-200 text-sm">PJOK</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">08.30-09.10</td><td class="p-2 border-b border-gray-200 text-sm">PAI</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">09.10-09.40</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">09.40-10.20</td><td class="p-2 border-b border-gray-200 text-sm">PAI</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">10.20-11.00</td><td class="p-2 border-b border-gray-200 text-sm">Bhs inggris</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">11.00-12.20</td><td class="p-2 border-b border-gray-200 text-sm">MTK</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">12.20-13.00</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">13.00-13.40</td><td class="p-2 border-b border-gray-200 text-sm">MTK</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">📙 Rabu</h3>
+                <table class="w-full border-collapse">
+                    <tbody>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">06.30-08.30</td><td class="p-2 border-b border-gray-200 text-sm">TIK</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">08.30-09.10</td><td class="p-2 border-b border-gray-200 text-sm">Bhs indonesia</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">09.10-09.40</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">09.40-10.20</td><td class="p-2 border-b border-gray-200 text-sm">Bhs indonesia</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">10.20-11.40</td><td class="p-2 border-b border-gray-200 text-sm">MTK</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">11.40-12.20</td><td class="p-2 border-b border-gray-200 text-sm">IPS</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">12.20-13.00</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">13.00-13.40</td><td class="p-2 border-b border-gray-200 text-sm">PKN</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">📕 Kamis</h3>
+                <table class="w-full border-collapse">
+                    <tbody>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">06.30-07.50</td><td class="p-2 border-b border-gray-200 text-sm">Bhs arab</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">07.50-09.10</td><td class="p-2 border-b border-gray-200 text-sm">IPA</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">09.10-09.40</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">09.40-11.00</td><td class="p-2 border-b border-gray-200 text-sm">PKN</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">11.00-11.40</td><td class="p-2 border-b border-gray-200 text-sm">IPA</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">11.40-12.20</td><td class="p-2 border-b border-gray-200 text-sm">IPS</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">12.20-13.00</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">13.00-13.40</td><td class="p-2 border-b border-gray-200 text-sm">IPS</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">📒 Jumat</h3>
+                <table class="w-full border-collapse">
+                    <tbody>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">07.10-08.30</td><td class="p-2 border-b border-gray-200 text-sm">BHS inggris</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">08.30-09.10</td><td class="p-2 border-b border-gray-200 text-sm">PAI</td></tr>
+                        <tr class="bg-[#ffd966] font-bold text-gray-800"><td class="p-2 border-b border-gray-200 text-sm">09.10-09.40</td><td class="p-2 border-b border-gray-200 text-sm">ISTIRAHAT</td></tr>
+                        <tr><td class="p-2 border-b border-gray-200 text-sm">09.40-11.40</td><td class="p-2 border-b border-gray-200 text-sm">Seni rupa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-4">
+                <button onclick="showPage('home')" class="w-4/5 md:w-3/4 py-2 px-4 my-1 border-none rounded-lg bg-[#4facfe] text-white text-base cursor-pointer hover:bg-[#3a9af7] transition-colors duration-200">⬅ Kembali</button>
+            </div>
+        </section>
+
+        <!-- BAGIAN STRUKTUR KELAS -->
+        <!-- Bagian ini tersembunyi secara default -->
+        <section id="struktur" class="p-4 hidden">
+            <div class="card bg-white p-4 rounded-lg mb-4 shadow-md">
+                <h3 class="mt-0 bg-[#4facfe] text-white p-2 rounded-md text-lg font-medium">👥 Struktur Kelas 7A</h3>
+                <p class="text-gray-700 mb-2"><b>Wali Kelas:</b> Bu Opah</p>
+                <p class="text-gray-700 mb-2"><b>Ketua Kelas:</b> Aul</p>
+                <p class="text-gray-700 mb-2"><b>Wakil:</b> Atthla</p>
+                <p class="text-gray-700 mb-2"><b>Sekretaris:</b> Ghozali & Avika</p>
+                <p class="text-gray-700"><b>Bendahara:</b> Aina</p>
+            </div>
+            <div class="text-center mt-4">
+                <button onclick="showPage('home')" class="w-4/5 md:w-3/4 py-2 px-4 my-1 border-none rounded-lg bg-[#4facfe] text-white text-base cursor-pointer hover:bg-[#3a9af7] transition-colors duration-200">⬅ Kembali</button>
+            </div>
+        </section>
+    </div> <!-- Akhir dari wrapper konten utama -->
+
+    <!-- JAVASCRIPT UNTUK FUNGSI INTERAKTIF -->
+    <script>
+        /**
+         * Fungsi untuk menampilkan halaman (section) tertentu dan menyembunyikan yang lain.
+         * @param {string} pageId - ID dari section yang ingin ditampilkan.
+         */
+        function showPage(pageId) {
+            // Sembunyikan semua section terlebih dahulu
+            document.querySelectorAll("section").forEach(sec => {
+                sec.classList.add("hidden");
+            });
+
+            // Tampilkan section yang dituju
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) {
+                targetSection.classList.remove("hidden");
+            }
+
+            // Jika kembali ke halaman 'home', jalankan animasi prestasi
+            if (pageId === "home") {
+                animatePrestasi();
+            }
+        }
+
+        /**
+         * Fungsi untuk menganimasikan daftar prestasi.
+         */
+        function animatePrestasi() {
+            const items = document.querySelectorAll(".prestasi-list li");
+            items.forEach((item, index) => {
+                // Reset status awal untuk animasi ulang
+                item.style.opacity = "0";
+                item.style.transform = "translateY(20px)";
+                // Atur timeout untuk efek muncul berurutan
+                setTimeout(() => {
+                    item.style.opacity = "1";
+                    item.style.transform = "translateY(0)";
+                }, index * 150); // Animasi sedikit lebih cepat
+            });
+        }
+
+        // Jalankan fungsi setelah DOM sepenuhnya dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const introScreen = document.getElementById('intro');
+            if (introScreen) {
+                // Tambahkan event listener untuk mendeteksi akhir animasi intro
+                introScreen.addEventListener('animationend', () => {
+                    introScreen.style.display = 'none'; // Sembunyikan intro sepenuhnya setelah animasi selesai
+                    showPage('home'); // Tampilkan halaman home setelah intro
+                });
+            } else {
+                // Fallback jika elemen intro tidak ada atau terjadi kesalahan
+                showPage('home');
+            }
+        });
+    </script>
+</body>
+</html>
